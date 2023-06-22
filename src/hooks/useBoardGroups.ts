@@ -29,7 +29,7 @@ export default function useBoardGroups(context: AppContextType | undefined) {
   }
 
 
-function getBoardGroups(boardId: number | number[]): Record<string, any> {
+export function getBoardGroups(boardId: number | number[]): Record<string, any> {
     return executeMondayApiCall(
       `query($boardId:[Int!]) { boards(ids:$boardId) { groups { id title} } }`,
       {

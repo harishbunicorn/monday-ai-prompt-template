@@ -26,6 +26,7 @@ import { replaceTagsWithColumnValues } from "@/helpers/tags-helpers";
 import useBoardGroups, {mapBoardGroupsToDropdownOptions} from "@/hooks/useBoardGroups";
 import SelectGroup from "@/components/select-group";
 
+
 type Props = {
   initialInput?: string;
 };
@@ -47,7 +48,7 @@ async function getItemsAndColumnValues(selectedGroup, context, columnIds) {
       groupId: selectedGroup,
     },
   }
-);}
+)}
 
 function getColumnIdsFromInputTags(input: string) {
   const findTaggedColumnsRegex = new RegExp("\\[\\[.*?\\]\\]", "g");
@@ -92,7 +93,8 @@ const LivestreamExampleFinal = ({ initialInput = "" }: Props): JSX.Element => {
   const error = aiApiStatus.error;
   useSuccessMessage(success);
 
-  console.log(context);
+  console.log(boardGroups);
+
   function handleColumnSelect(e: DropdownSelection) {
       setOutputColumn(e?.value);
     }
@@ -172,20 +174,10 @@ const LivestreamExampleFinal = ({ initialInput = "" }: Props): JSX.Element => {
           placeholder={"Select an output column"}
           size="small"
           />
+          {/* <Button className={""} styles={{
+
+          }}>Generate</Button> */}
         </div>
-      {canRenderInput && (
-        <TextInputWithTagsAndSend
-          className={classes.inputContainer}
-          onSend={handleSend}
-          validTags={boardColumnsForTagsComponent ?? []}
-          initialInput={initialInput}
-          mode={mode}
-          setMode={setMode}
-          loading={loading}
-          success={success}
-          error={error}
-        />
-      )}
       <div className={classes.footer}>
         <AiAppFooter />
       </div>

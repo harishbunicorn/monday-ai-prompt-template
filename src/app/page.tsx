@@ -8,13 +8,16 @@ import LivestreamExampleFinal from '@/examples/livestream-example/final-code';
 import LivestreamExample from '@/examples/livestream-example/boilerplate';
 import AiAppFooter from '@/components/ai-footer/ai-footer';
 import ContextExplorerExample from '@/examples/context-explorer/context-explorer-example'
+import BoardAssistant from '@/assistants/boardAssistant/board-assistant';
 
 export default function Home() {
+  console.log(process.env.NEXT_PUBLIC_ENV)
   return (
     <div className={styles.App}>
     <AppContextProvider>
-      <ContextExplorerExample />
+      {/* <ContextExplorerExample /> */}
       {/* <LivestreamExampleFinal /> */}
+      <BoardAssistant/>
       {/* <BasePromptLayout /> */}
     </AppContextProvider>
     </div>
