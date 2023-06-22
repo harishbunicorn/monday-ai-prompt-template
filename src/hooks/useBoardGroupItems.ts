@@ -30,7 +30,7 @@ export default function useBoardGroupItems(context: AppContextType | undefined, 
 
 export function getBoardGroupsItems(boardId: number | number[], groupId: string | string[]): Record<string, any> {
     return executeMondayApiCall(
-        `query($boardId:[Int!],$groupId:[String!]) { boards(ids:$boardId) { groups(ids:$groupId) { id items{ id name} } } }`,
+        `query($boardId:[Int!],$groupId:[String!]) { boards(ids:$boardId) { groups(ids:$groupId) { id items{ id name column_values{ id title text}} } } }`,
         {
             variables: { boardId, groupId },
         }

@@ -11,6 +11,10 @@ import ContextExplorerExample from '@/examples/context-explorer/context-explorer
 import BoardAssistant from '@/assistants/boardAssistant/board-assistant';
 
 export default function Home() {
+  console.log(
+      '🚀 ~ file: page.tsx:14 ~ Home ~ Home:',
+      process.env.NEXT_PUBLIC_ENV
+  );
   console.log(process.env.NEXT_PUBLIC_ENV)
   return (
     <div className={styles.App}>
